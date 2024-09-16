@@ -1,0 +1,141 @@
+html{
+    background-color: #6EAF79;
+}
+
+.janela{
+   display: flex;
+   justify-content:center;
+   align-items: center;
+   height: 100vh;
+   width: 100vw;
+}
+
+.mainDiv {
+    
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 15px;
+    text-align: center;
+    padding: 0px;
+    width: 500px;
+    height: 620px;
+    line-height: 3;
+  }
+ .Logo{
+    width: 27%;
+ }
+
+ .logtit{
+    font-size: xx-large;
+ }
+
+
+ input[type=text]{
+    border: 3px solid black;
+    border-radius: 15px;
+    height: 40px;
+    width: 250px;
+    font-size: medium;
+
+ }
+
+ input[type=text].snh{
+  margin-top:2% ;
+ }
+
+input[type=text]:hover{
+      background-color: rgb(241, 241, 241);
+}
+
+ input[type=password]{
+     border: 3px solid black;
+    border-radius: 15px;
+    height: 40px;
+    width: 250px;
+    font-size: medium;
+    margin-top: 2%;
+ }
+
+ input[type=password]:hover{
+   background-color: rgb(241, 241, 241);
+}
+
+ button[type=submit]{
+    background-color: #56B278;
+    border: 3px;
+    border-radius: 36px;
+    width: 125px;
+    height: 45px;
+    font-size: x-large;
+    font-weight: bold;
+    margin-top: 3%;
+ }
+ 
+ .coisaembaixo{
+    margin-top: 2%;
+    font-size: x-large;
+    line-height: 2;
+ }
+
+ button[type=submit]:hover{
+   background-color:#489664;
+   cursor: pointer;
+ }
+
+ a:hover{
+   color: #000ba7;
+ }
+ 
+ .sidebar {
+   height: 100%;
+   width: 0;
+   position: fixed;
+   z-index: 1;
+   top: 0;
+   left: 0;
+   background-color: #1a5a3241;
+   overflow-x: hidden;
+   transition: 0.5s;
+   padding-top: 60px;
+   border: solid, 2px, black;
+ }
+ 
+ .sidebar a {
+   padding: 8px 8px 8px 32px;
+   text-decoration: none;
+   font-size: 25px;
+   color: #ffffff;
+   display: block;
+   transition: 0.3s;
+   border-radius: 5px;
+ }
+ 
+ .sidebar a:hover {
+   color: #f1f1f1;
+ }
+ 
+ .sidebar .closebtn {
+   position: absolute;
+   top: 0;
+   right: 25px;
+   font-size: 36px;
+   margin-left: 50px;
+ }
+ 
+ .openbtn {
+   font-size: 20px;
+   cursor: pointer;
+   background-color: #6EAF79;
+   color: white;
+   border: none;
+   border-radius: 5px;
+ }
+ 
+ .openbtn:hover {
+   background-color: #444;
+ }
+ 
+ #main {
+   transition: margin-left .25s;
+   padding: 16px;
+ }

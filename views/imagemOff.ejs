@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema-Cabra/login</title>
+    <link type="text/css" rel="stylesheet" href="/css/imagem.css">
+  </head>
+  <body>
+    <div id="mySidebar" class="sidebar">
+        <a href="#" class="desenvolvedores">Desenvolvedores</a>
+        <a href="#" class="ajuda">Ajuda</a>
+        <a href="#" class="voltar">Voltar</a>
+    
+  </div>
+
+<div id="main">
+  <button class="openbtn">☰</button>  
+</div>
+
+  <div class="janela">
+    
+    <div class="formulario">
+      
+      
+      
+      
+      <div class="textden">
+        
+        <h2 class="dev">Alterar imagem</h2>
+        
+
+        <br>
+        <div class="container">
+          
+          <div class="coluna1">
+            
+            <img src="/imgs/imgsUsuario/1.png" class="userimg" id="1.png" >
+            <img src="/imgs/imgsUsuario/2.png" class="userimg" id="2.png" >
+            <img src="/imgs/imgsUsuario/3.png" class="userimg" id="3.png" >
+            </div>
+            
+            
+            <div class="coluna2">
+             <img src="/imgs/imgsUsuario/4.png" class="userimg" id="4.png" >
+             <img src="/imgs/imgsUsuario/5.png" class="userimg" id="5.png" >
+             <img src="/imgs/imgsUsuario/6.png" class="userimg" id="6.png" >
+            </div>
+
+            <div class="coluna3">
+              <img src="/imgs/imgsUsuario/7.png" class="userimg" id="7.png" >
+              <img src="/imgs/imgsUsuario/8.png" class="userimg" id="8.png" >
+              <img src="/imgs/imgsUsuario/9.png" class="userimg" id="9.png" >
+            </div>
+          
+          </div>
+          
+          <button class="btreg" id="img" >Registrar</button>
+          
+        </div>
+        
+      </div>
+    </body> 
+    
+    <script>
+      const menu = document.querySelector('.openbtn');
+      const voltar = document.querySelector('.voltar');
+      const desenvolvedores = document.querySelector('.desenvolvedores');
+      const ajuda = document.querySelector('.ajuda');
+      const btn = document.querySelector('.btreg')
+      //imagens
+      const img1 = document.querySelector('#img1');
+      const img2 = document.querySelector('#img2');
+      const img3 = document.querySelector('#img3');
+      const img4 = document.querySelector('#img4');
+      const img5 = document.querySelector('#img5');
+      const img6 = document.querySelector('#img6');
+      const img7 = document.querySelector('#img7');
+      const img8 = document.querySelector('#img8');
+      const img9 = document.querySelector('#img9');
+      const imgArr = document.querySelectorAll('.userimg');
+      const dev = document.querySelector('.dev');
+
+      let imgEscolhida = "";
+      let selecionada = "";
+      let enviou = false;
+      let aberto = false;
+      let caminho = {caminho:"/imgs/imgsUsuario/"}
+        function abreMenu(e) {
+        if(aberto == false){
+        document.getElementById("mySidebar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+        //document.body.style.backgroundColor = "#001";
+        //document.body.style.opacity = "0.9";
+        aberto = true;
+        } else if(aberto){
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft= "0";
+            //janela.style.opacity = "1";
+            //document.html.style.backgroundColor = "#6EAF79";
+            aberto = false;
+        }};
+        console.log(imgArr)
+        async function clicaFoto(e){
+          //imgArr.style.borderColor = 'black'
+  
+          imgArr.forEach((element) => element.addEventListener('click', () => {
+            for(let i = 0; i<imgArr.length;i++){
+              if(imgArr[i].style.borderColor != 'black'){
+                imgArr[i].style.borderColor = 'black'
+
+              }
+          }
+            selecionada = element.id;
+             element.style.borderColor = 'red';
+          
+          }))
+        }
+        clicaFoto()
+        function escolheFoto(){
+          if(selecionada != ""){
+          enviou = true;
+          imgEscolhida = selecionada;
+          console.log(imgEscolhida)
+          dev.innerHTML = 'Imagem alterada!'
+          for(let i = 0; i<imgArr.length;i++){
+              if(imgArr[i].style.borderColor != 'black'){
+                imgArr[i].style.borderColor = 'black'
+
+              }}
+              caminho.caminho += imgEscolhida 
+          fetch('/alterarImagem', {
+          method:"POST",
+          headers:{
+            "Content-type": "application/json"
+          },
+          body:JSON.stringify(caminho)
+        });
+        }}
+
+      btn.addEventListener('click', escolheFoto)
+      menu.addEventListener('click',abreMenu);
+      voltar.addEventListener('click', () => {location.assign('http://localhost:3000/cadastro')});
+      desenvolvedores.addEventListener('click', () => {location.assign('http://localhost:3000/desenvolvedores')});
+      ajuda.addEventListener('click', () => {location.assign('http://localhost:3000/ajuda')})
+</script>
+
+</html>

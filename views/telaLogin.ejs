@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema-Cabra/login</title>
+    <link type="text/css" rel="stylesheet" href="css/csslogin.css">
+</head>
+<body>
+    
+  <div id="mySidebar" class="sidebar">
+    <a href="#" class="desenvolvedores">Desenvolvedores</a>
+    <a href="#" class="ajuda">Ajuda</a>
+  </div>
+  
+  <div id="main">
+    <button class="openbtn">☰</button>  
+  </div>
+
+   <div class="janela">
+
+    <div class="mainDiv">
+
+        <!-- classe "logtit" é pra parte grande escrito "login" ou coisas similares -->
+        <div class="logtit">
+            <b>Login</b> </div>
+        <div class="imgcontainer">
+          <img src="imgs/Logo plácido.png" alt="Logo" class="Logo">
+        </div>
+
+        <!-- classe "container" são os botões com input texto-->
+        <div class="container">
+          <label for="mat"><b></b></label>
+          <input type="text" placeholder=" Matrícula:" name="mat" class="mat"required>
+         </div>
+         <div class="container">
+          <label for="senh"></label>
+          <input type="password" placeholder=" Senha: " name="senh" class="snh"required>
+          <br>
+          <input type="checkbox" class="snhBtn">Mostrar Senha
+        </div>
+
+        <!-- classe "entrar" serve pro botão de entrar, provavelmente será usado para outros semelhantes-->
+        <div class="entrar">
+          <button class="btreg" type="submit">Entrar</button>
+        </div>
+      <!-- classe "coisaembaixo" serve para os botões com link-->
+        <div class="coisaembaixo">
+          <span class="sen">Esqueceu a senha? <a href="/esqueci">Recuperar</a></span>
+        </div>
+        <div class="coisaembaixo">
+            <span class="cad">Não tem uma conta?  <a href="/cadastro">Cadastrar</a></span>
+        </div>
+        <div class="logtit">
+          <b>Sistema Cabra</b>
+        </div>
+      </div>
+    </div>
+
+
+
+<script src="js/loginJs.js"></script>
+
+
+
+</body>
+</html>

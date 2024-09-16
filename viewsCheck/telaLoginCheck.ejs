@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema-Cabra/login</title>
+    <link type="text/css" rel="stylesheet" href="css/csslogin.css">
+</head>
+<body>
+    
+  <div id="mySidebar" class="sidebar">
+    <a href="#" class="desenvolvedores">Desenvolvedores</a>
+  </div>
+  
+  <div id="main">
+    <button class="openbtn">☰</button>  
+  </div>
+
+   <div class="janela">
+
+    <div class="mainDiv">
+
+        <!-- classe "logtit" é pra parte grande escrito "login" ou coisas similares -->
+        <div class="logtit">
+            <b>Login</b> </div>
+        <div class="imgcontainer">
+          <img src="imgs/Logo plácido.png" alt="Logo" class="Logo">
+        </div>
+
+        <!-- classe "container" são os botões com input texto-->
+        <div class="container">
+          <label for="mat"><b></b></label>
+          <input type="text" placeholder=" Matrícula:" name="mat" class="mat"required>
+         </div>
+         <div class="container">
+          <label for="senh"></label>
+          <input type="password" placeholder=" Senha: " name="senh" class="snh"required>
+          <br>
+          <input type="checkbox" class="snhBtn">Mostrar Senha
+        </div>
+
+        <!-- classe "entrar" serve pro botão de entrar, provavelmente será usado para outros semelhantes-->
+        <div class="entrar">
+          <button class="btreg" type="submit">Entrar</button>
+        </div>
+      <!-- classe "coisaembaixo" serve para os botões com link-->
+        <div class="coisaembaixo">
+          <span class="sen">Esqueceu a senha? <a href="/esqueci">Recuperar</a></span>
+        </div>
+        <div class="logtit">
+          <b>Sistema Cabra</b>
+        </div>
+      </div>
+    </div>
+
+
+
+    <script type="module">
+      const desenvolvedores = document.querySelector('.desenvolvedores');
+//Barra de navegação
+const menu = document.querySelector('.openbtn');
+const ajuda = document.querySelector('.ajuda');
+const snhBtn = document.querySelector('.snhBtn')
+let aberto = false;
+//Controla a barra lateral
+function abreMenu(e) {
+  if(aberto == false){
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  aberto = true;
+  } else if(aberto){
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+    aberto = false;
+  }};
+  menu.addEventListener('click',abreMenu);
+
+//conexão de info do backend
+
+
+
+//inputs
+const matInp = document.querySelector('.mat');
+const senhaInp = document.querySelector('.snh')
+const regBtn = document.querySelector('.btreg');
+
+let mat = "";
+let senha = "";
+var logado = {
+  token:"deslogado",
+   index:0,
+   senhaUser:"",
+   loginUser:""
+};
+console.log(logado)
+
+function envia(e) {
+   mat = matInp.value;
+   senha = senhaInp.value;
+   //Faz a validação
+   fetch('/api/cadastro')
+.then(resposta => resposta.json())
+.then(cadastro => { console.log(cadastro)
+  for(let i=0;i<cadastro.length;i++){
+      if(mat == cadastro[i].login && senha == cadastro[i].senha){
+        logado.token = "logado";
+        logado.index = i;
+        logado.senhaUser = senha;
+        logado.loginUser = mat;
+
+        //Garante o token
+        fetch('/token', {
+          method:"POST",
+          headers:{
+            "Content-type": "application/json"
+          },
+          body:JSON.stringify(logado)
+        });
+
+
+      location.assign('http://localhost:3000/checklist');
+      } 
+    } if(logado.token == "deslogado"){
+        alert("Senha incorreta")
+      
+    }
+} );
+} 
+
+function mostraSenha(){
+  if (senhaInp.type === "password") {
+    senhaInp.type = "text";
+  } else {
+    senhaInp.type = "password";
+  }
+}
+
+regBtn.addEventListener('click', envia);
+document.addEventListener('keydown', (e) => {if(e.keyCode == 13){envia()}});
+desenvolvedores.addEventListener('click', () => {location.assign('http://localhost:3000/desenvolvedores');})
+snhBtn.addEventListener('click', mostraSenha);
+    </script>
+
+
+
+
+</body>
+</html>

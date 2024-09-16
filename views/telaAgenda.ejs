@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sistema-Cabra/login</title>
+        <link type="text/css" rel="stylesheet" href="/css/csstelaaagenda.css">
+    </head>
+    <body>
+      <div id="mySidebar" class="sidebar">
+        <a href="#" class="desenvolvedores">Desenvolvedores</a>
+        <a href="#" class="imagem">Alterar imagem</a>
+        <a href="#" class="ajuda">Ajuda</a>
+        <a href="#" class="deslogar">Deslogar</a>
+      </div>
+      
+      <div id="main">
+        <button class="openbtn">☰</button>  
+      </div>
+       <div class="janela">
+        <div class="formulario">
+        <div class="formcontent">
+            <!-- classe "logtit" é pra parte grande escrito "login" ou coisas similares -->
+            <div class="logtit">
+                <b>Agendamento	</b> </div>
+                <div class="horarios">
+                  <p class="legendahor">Horário</p>
+                  <input type="image" class="hora1" src="/imgs/bttncinzamat.png"> 
+                  <img src="imgs/Logo plácido.png" class="logo" height=11%" width="11%">
+                <input type="image" class="hora2" src="/imgs/bttncinzaves.png">
+                </div>
+
+                <img class="alnimg">
+                <br>
+                <span class="alninfo1">Aluno: JIMMY MCGILL</span>
+             <br>
+			  <span class="alninfo2">Matrícula: blablabla4769420</span>
+   
+			 
+             <div class="janelaobs">
+              <p class="legenda">Observação (opcional):</p>
+            <!-- classe "container" são os botões com input texto-->
+              <textarea placeholder=" Insira texto aqui:" class="txtar" rows="13" cols="35"></textarea>
+             </div>
+             <!--calendario-->
+             <div class="container">
+              <div class="calendar">
+                <header>
+                  <pre class="left">◀</pre>
+                  
+                  <div class="header-display">
+                    <p class="display">""</p>
+                  </div>
+            
+                  <pre class="right">▶</pre>
+            
+                </header>
+            
+                <div class="week">
+                  <div>Dom</div>
+                  <div>Seg</div>
+                  <div>Ter</div>
+                  <div>Qua</div>
+                  <div>Qui</div>
+                  <div>Sex</div>
+                  <div>Sab</div>
+                </div>
+                <div class="days"></div>
+              </div>
+              <div class="display-selected">
+                <p class="selected"></p>
+              </div>
+            </div>
+
+
+
+            
+            <!-- classe "entrar" serve pro botão de entrar, provavelmente será usado para outros semelhantes-->
+            <div class="margin1"></div>
+            <div class="entrar">
+              <button type="submit" class="enviar">Agendar</button>
+              <br>
+              <button type="submit" class="cancel">Cancelar agendamento</button>
+              <br>
+              <button type="submit" hidden class="deleta">Cancelar Selecionado</button>
+            </div>
+          </div>
+        </form>
+        <h1 class="cabra">Sistema Cabra</h1><br>
+      </div>
+    </div>
+        <script>
+
+
+
+
+        </script>
+        <script src="js/agendaJs.js"></script>
+    </body>
+
+    </html>

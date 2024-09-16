@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema-Cabra/login</title>
+    <link type="text/css" rel="stylesheet" href="css/cssSenha.css">
+</head>
+<body>
+  <div id="mySidebar" class="sidebar">
+    <a href="#" class="voltar">Voltar</a>
+  </div>
+  <div id="main">
+    <button class="openbtn">☰</button>  
+  </div>
+   <div class="janela">
+    <div class="mainDiv">
+        <!-- classe "logtit" é pra parte grande escrito "login" ou coisas similares -->
+        <div class="logtit">
+            <b>Esqueceu sua senha?</b> </div>
+        
+        <p class="parag">Enviaremos um e-mail com instruções <br>sobre como redefinir sua senha.</p>
+        <!-- classe "container" são os botões com input texto-->
+        <div class="container">
+          <label for="mat"><b></b></label>
+          <input class="eml" type="text" placeholder=" Insira a sua Matrícula " name="mat" required>
+         </div>
+         <div class="container">
+          <label for="senh"></label>
+          <input class="snh" type="text" placeholder=" Insira a sua Matrícula " name="senh" required>
+        </div>
+        <div class="container">
+          <label for="cod"></label>
+          <input class="cod" type="text" hidden placeholder=" Insira o Código " name="cod" required>
+        </div>
+        <!-- classe "entrar" serve pro botão de entrar, provavelmente será usado para outros semelhantes-->
+        
+        <div class="entrar">
+          <button type="submit" class="btn">Enviar</button>
+          <button type="submit" hidden class="btcod">Enviar</button>
+        
+      <!-- classe "coisaembaixo" serve para os botões com link-->
+        
+        
+        </div>
+        <div class="logtit">
+          
+          <b class="sC">Sistema Cabra</b>
+        </div>
+      </div>
+      </div>
+</body>
+<script>
+  const emlInp = document.querySelector('.eml');
+  const emlConf = document.querySelector('.snh');
+  const menu = document.querySelector('.openbtn');
+  const janela = document.querySelector('.janela');
+  const sendBtn = document.querySelector('.btn');
+  const voltar = document.querySelector('.voltar');
+  const parag = document.querySelector('.parag');
+  const codInp = document.querySelector('.cod');
+  const sCTxt = document.querySelector('.sC'); 
+  const btCod = document.querySelector('.btcod');
+
+  let aberto = false;
+  let mat = ""
+  let dados = {
+    email:""
+  }
+  
+  function abreMenu(e) {
+    if(aberto == false){
+    document.getElementById("mySidebar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    aberto = true;
+    } else if(aberto){
+      document.getElementById("mySidebar").style.width = "0";
+      document.getElementById("main").style.marginLeft= "0";
+      aberto = false;
+  }};
+  
+  function enviaEmail(){
+    if(emlInp.value == emlConf.value && emlInp.value != ""){
+      mat = emlInp.value
+      dados.email = emlInp.value
+      parag.innerHTML = "Um email foi enviado contendo informações sobre como recuperar a sua senha.";
+      fetch('/recuperarSenha', {
+        method:"POST",
+        headers:{
+          "Content-type": "application/json"
+        },
+        body:JSON.stringify(dados)
+      });
+      codInp.hidden = false;
+      btCod.hidden = false;
+      sendBtn.remove()
+      btCod.style.marginTop = "3.7%"
+      } else {
+      parag.innerHTML = (emlInp.value != emlConf.value) ? "Os E-mails não são idênticos." : "Insira a sua matrícula.";
+    }
+    }
+    
+    let mudaInp = false;
+    let alterado = false;
+  function verificaCod () {
+
+    if(!mudaInp){
+//pede os código do backend
+fetch('/codVerifSnh')
+        .then(resposta => resposta.json())
+        .then(codigo => { if(codigo == codInp.value){
+          parag.innerHTML = "Insira seus novos dados.";
+          emlInp.value = "";
+          emlConf.value = "";
+          codInp.value = "";
+          emlInp.placeholder = "Insira seu novo login";
+          emlConf.placeholder = "Insira sua nova senha";
+          codInp.placeholder = "Confirme a senha";
+          if(emlConf.value == emlInp.value) { "Seus dados foram alterados com sucesso."; mudaInp = true} else{parag.innerHTML = "As senhas não são identicas."}
+        }
+    })} else{
+         parag.innerHTML = "Seus dados foram alterados com sucesso.";
+         alterado = true
+         let novoDado = {
+          login: emlInp.value,
+          senha: emlConf.value,
+          matricula:mat
+         }
+         
+         fetch('/mudaSenha', {
+           method:"POST",
+           headers:{
+             "Content-type": "application/json"
+            },
+            body:JSON.stringify(novoDado)
+          });
+          emlInp.hidden = true;
+           emlConf.hidden = true;
+           codInp.hidden = true;
+          
+
+
+    }
+  }
+  
+  btCod.addEventListener('click', () => {
+   if(!alterado) {
+    verificaCod()
+  } else {
+    location.assign('http://localhost:3000/login')
+  }
+
+  })
+  menu.addEventListener('click',abreMenu);
+  sendBtn.addEventListener('click', enviaEmail)
+  voltar.addEventListener('click', () => {location.assign('http://localhost:3000/login')});
+                                //AJUDA TA DESLOGANDO O USER
+
+    
+   
+
+  
+
+  
+          </script>
+</html>

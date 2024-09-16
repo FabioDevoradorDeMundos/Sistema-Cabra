@@ -1,0 +1,172 @@
+
+html{
+    background-color: #6EAF79;
+}
+
+.janela{
+   display: flex;
+   justify-content:center;
+   align-items: center;
+   height: 100vh;
+   width: 100vw;
+}
+
+.formulario {
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 15px;
+    text-align: center;
+    padding: 0px;
+    width: 800px;
+    height: 700px;
+    line-height: 3;
+    display: flex;
+  }
+
+ 
+.container 
+{
+  
+  width: 500px;
+  line-height: 1;
+  display: flex;
+  flex-direction: row;
+  
+}
+
+.coluna1 
+{
+
+  flex: 1;
+  margin-left: 20%;
+}
+
+.linha
+{
+
+  width: 500px;
+
+}
+
+.coluna2 
+{
+
+  flex: 1;
+
+  margin-left: 15%;
+}
+
+.coluna3{
+  flex: 1;
+  margin-left: 15%;
+}
+
+.imgdevs{
+    height: 70%;
+   margin-right: -180%;
+   border: 3px solid black;
+   border-radius: 15px;
+}
+
+.dev{
+    width: 340px;
+font-size: 30px;
+margin-left: 45%;
+margin-bottom: 1%;
+}
+
+.userimg{
+  width: 150%;
+  border: 3px solid black;
+  border-radius: 20px;
+  margin-bottom: 10%;
+  margin-left: 100%;
+  cursor: pointer;
+}
+
+.userimg:hover{
+  border: 4px solid black
+}
+
+.btreg{
+  background-color: #56B278;
+  border: 3px;
+  border-radius: 36px;
+  width: 125px;
+  height: 45px;
+  font-size: larger;
+  font-weight: bold;
+  margin-top: 3%;
+  margin-left: 65%;
+  cursor: pointer;
+}
+.btreg:hover{
+  background-color:#489664;
+}
+
+button[type=submit]:hover{
+  background-color:#489664;
+  cursor: pointer;
+}
+
+
+
+/*Coisa de botão*/
+.backBtn{
+    padding-left: 10px;
+    font-size:48px;
+  }
+  .backBtn:hover{
+      font-weight: bold;
+    cursor: pointer;
+   }
+  
+   .sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #1a5a3241;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    border: solid, 2px, black;
+  }
+  
+  .sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s;
+    border-radius: 5px;
+  }
+  
+  .sidebar a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  .openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #6EAF79;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .openbtn:hover {
+    background-color: #444;
+  }
+  

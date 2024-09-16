@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema-Cabra/login</title>
+    <link type="text/css" rel="stylesheet" href="css/cssSenha.css">
+</head>
+<body>
+  <div id="mySidebar" class="sidebar">
+    <a href="#" class="desenvolvedores">Desenvolvedores</a>
+    <a href="#" class="ajuda">Ajuda</a>
+    <a href="#" class="voltar">Voltar</a>
+  </div>
+  <div id="main">
+    <button class="openbtn">☰</button>  
+  </div>
+   <div class="janela">
+    <div class="mainDiv">
+        <!-- classe "logtit" é pra parte grande escrito "login" ou coisas similares -->
+        <div class="logtit">
+            <b>Esqueceu sua senha?</b> </div>
+        
+        <p class="parag">Enviaremos um e-mail com instruções <br>sobre como redefinir sua senha.</p>
+        <!-- classe "container" são os botões com input texto-->
+        <div class="container">
+          <label for="mat"><b></b></label>
+          <input class="eml" type="text" placeholder=" Insira a sua Matrícula " name="mat" required>
+         </div>
+         <div class="container">
+          <label for="senh"></label>
+          <input class="snh" type="text" placeholder=" Insira a sua Matrícula " name="senh" required>
+        </div>
+        <div class="container">
+          <label for="cod"></label>
+          <input class="cod" type="text" hidden placeholder=" Insira o Código " name="cod" required>
+        </div>
+        <!-- classe "entrar" serve pro botão de entrar, provavelmente será usado para outros semelhantes-->
+        
+        <div class="entrar">
+          <button type="submit" class="btn">Enviar</button>
+          <button type="submit" hidden class="btcod">Enviar</button>
+        
+      <!-- classe "coisaembaixo" serve para os botões com link-->
+        
+        
+        </div>
+        <div class="logtit">
+          
+          <b class="sC">Sistema Cabra</b>
+        </div>
+      </div>
+      </div>
+      <script src="js/senhaJs.js"></script>
+</body>
+</html>

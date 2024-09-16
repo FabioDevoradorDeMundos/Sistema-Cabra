@@ -1,0 +1,60 @@
+html{
+    background-color: #6EAF79;
+}
+
+.janela{
+   display: flex;
+   justify-content:center;
+   align-items: center;
+   height: 100vh;
+   width: 100vw;
+}
+
+form 
+{
+
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 15px;
+    text-align: center;
+    padding: 0px;
+    width: 500px;
+    height: 775px;
+    line-height: 3;
+    
+  }
+
+  .textden{
+
+
+font-size: 20px;
+
+ }
+ 
+
+  .botoes-empilhados {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2px;
+  }
+  
+  .botao {
+
+    font-size: 20px;
+    background-color: #6EAF79;
+    color: #ffffff;
+    padding: 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    width: 250px; /* Defina uma largura fixa para os botões */
+    text-align: center; /* Centralize o texto dentro do botão */
+
+  }
+  
+  .botao:hover {
+    background-color: #3c8055;
+  }
+

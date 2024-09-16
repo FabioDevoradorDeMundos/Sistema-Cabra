@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sistema-Cabra/login</title>
+        <link type="text/css" rel="stylesheet" href="css/csstelaajuda.css">
+    </head>
+    <body>
+       
+      <body>
+        <div id="mySidebar" class="sidebar">
+            <a href="#" class="desenvolvedores">desenvolvedores</a>
+            <a href="#" class="voltar">Voltar</a>
+
+          </div>
+      
+      <div id="main">
+        <button class="openbtn">☰</button>  
+      </div>
+
+        
+       <div class="janela">
+
+        <form action="html/telaagenda.html" method="post">
+
+            <div class="logtit">
+                <b>Ajuda</b>
+              </div>
+
+          <div class="imgs">
+            <img src="imgs/imgsajuda/16.png" class="ajuda">
+            <img src="imgs/imgsajuda/17.png" class="ajuda">
+            <img src="imgs/imgsajuda/18.png" class="ajuda">
+            <img src="imgs/imgsajuda/19.png" class="ajuda">
+            <img src="imgs/imgsajuda/20.png" class="ajuda">
+            <img src="imgs/imgsajuda/21.png" class="ajuda">
+            </div>
+
+            <div class="logtit">
+              <b>Sistema Cabra</b>
+            </div> <br>
+
+          </form>
+        </div>
+        <script>
+            const menu = document.querySelector('.openbtn');
+            const voltar = document.querySelector('.voltar');
+            const desenvolvedores = document.querySelector('.desenvolvedores');
+            let aberto = false;
+
+            function abreMenu(e) {
+  if(aberto == false){
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  aberto = true;
+  } else if(aberto){
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+    aberto = false;
+}};
+
+menu.addEventListener('click',abreMenu);
+voltar.addEventListener('click', () => {location.assign('http://localhost:3000/')});
+desenvolvedores.addEventListener('click', () => {location.assign('http://localhost:3000/desenvolvedores')});
+        </script>
+        <script src="js/ajudaJs.js"></script>
+    </body>
+    </html>

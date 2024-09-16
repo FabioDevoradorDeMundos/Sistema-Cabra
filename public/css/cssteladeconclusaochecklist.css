@@ -1,0 +1,75 @@
+html{
+    background-color: #6EAF79;
+
+}
+
+body{
+   align-items: center;
+}
+
+.janela{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   width: 100vw;
+}
+
+form {
+    
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 15px;
+    text-align: center;
+    padding: 0px;
+    width: 450px;
+    height: 550px;
+    line-height: 3;
+   
+    
+  }
+ .Logo{
+    width: 50%;
+ }
+
+ .logtit{
+    font-size: xx-large;
+   
+ }
+
+ input[type=text]{
+    border: 3px solid black;
+    border-radius: 15px;
+    height: 40px;
+    width: 250px;
+    font-size: medium;
+    margin-top: 4%;
+ }
+
+ button[type=submit]{
+    background-color: #56B278;
+    border: 3px;
+    border-radius: 36px;
+    width: 70%;
+    height: 45px;
+    font-size: x-large;
+    font-weight: bold;
+    margin-top: 3%;
+ }
+ 
+ .coisaembaixo{
+    margin-top: 2%;
+    font-size: x-large;
+    line-height: 2;
+ }
+
+.parag{
+   line-height: 1;
+   font-size: 140%;
+}
+
+.snh:hover{background-color: rgb(241, 241, 241);}
+
+.eml:hover{ background-color:rgb(241, 241, 241);}
+
+.btn:hover{background-color: #489664; cursor: pointer;}

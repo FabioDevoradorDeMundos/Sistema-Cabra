@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sistema-Cabra/login</title>
+        <link type="text/css" rel="stylesheet" href="css/csschecklist.css">
+    </head>
+    <body>
+
+      <body>
+        <div id="mySidebar" class="sidebar">
+            <a href="#" class="desenvolvedores">Desenvolvedores</a>
+            <a href="#" class="deslogar">Deslogar</a>
+          </div>
+      
+      <div id="main">
+        <button class="openbtn">☰</button>  
+      </div>
+       <div class="janela">
+
+        <div class="mainDiv">
+
+            <!-- classe "logtit" é pra parte grande escrito "login" ou coisas similares -->
+            <div class="logtit">
+                <b>Checklist</b> </div>
+            <div class="chkbxsDiv">
+              <input type="checkbox" class="chkbxs">
+              <label>‎ Desligar as luzes</label>
+              <div class="break"></div>
+              <input type="checkbox" class="chkbxs">
+              <label>‎ Desligar o ar-condicionado</label>
+              <div class="break"></div>
+              <input type="checkbox" class="chkbxs">
+              <label>‎ Fechar as janelas</label>
+              <div class="break"></div>
+              <input type="checkbox" class="chkbxs">
+              <label>‎ Organizar os móveis</label>
+              <div class="break"></div>
+              <input type="checkbox" class="chkbxs">
+              <label>‎ Desligar o computador</label>
+            
+            </div>
+             <div class="janelaobs">
+              <p class="legenda">Observação:</p>
+            <!-- classe "container" são os botões com input texto-->
+              <textarea placeholder=" Insira texto aqui:" class="txtar" rows="13" cols="35"></textarea>
+             </div>
+
+          <!-- classe "coisaembaixo" serve para os botões com link-->
+            <div class="coisaembaixo">
+                <span class="cad">(Lembre-se de fechar a porta e entregar a chave à um responsável)</span>
+            </div>
+
+            <!-- classe "entrar" serve pro botão de entrar, provavelmente será usado para outros semelhantes-->
+            <div class="entrar">
+              <button type="submit" class="btn">Enviar</button>
+            </div>
+
+          </form>
+        </div>
+
+        <script>
+        const menu = document.querySelector('.openbtn');
+        const voltar = document.querySelector('.voltar');
+        const sobre = document.querySelector('.sobre');
+        const btn = document.querySelector('.btn');
+        const chkbxs = document.querySelectorAll('.chkbxs');
+        const desenvolvedores = document.querySelector('.desenvolvedores');
+        const deslogar = document.querySelector('.deslogar')
+        let aberto = false;
+        let observacao = document.querySelector('.txtar')
+        let info = {
+          descricao:"",
+          tarefa1:"Fechar a porta",
+          tarefa2:"Desligar o computador",
+          tarefa3:"Arrumar as mesas",
+          tarefa4:"Devolver as chaves",
+          tarefa5:"Desligar o ar",
+          matricula:""
+        }
+
+          function abreMenu(e) {
+      if(aberto == false){
+      document.getElementById("mySidebar").style.width = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
+      aberto = true;
+      } else if(aberto){
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+        aberto = false;
+      }};
+      function envia(){
+        let arr = []
+            chkbxs.forEach((e) => e.checked ? arr.push(e) : console.log("false"));
+            info.descricao = observacao.value;
+            if(arr.length == 5){
+              fetch('/api/agendaInfo')
+              .then(resposta => resposta.json())
+              .then(matric => {console.log(matric)
+              info.matricula = matric[0].matricula
+              fetch('/checklist', {
+                method:"POST",
+                headers:{
+                  "Content-type": "application/json"
+                },
+                body:JSON.stringify(info)
+              });
+            
+            })
+              
+              alert("Relatório enviado!")
+              
+            } else {
+              alert("Selecione todas caixas.")
+            }
+      }
+
+        
+
+
+
+      btn.addEventListener('click', envia)
+      menu.addEventListener('click',abreMenu);
+      desenvolvedores.addEventListener('click', () => {location.assign('http://localhost:3000/desenvolvedores')});
+      deslogar.addEventListener('click', () => {location.assign('http://localhost:3000/login');});
+      </script>
+
+    </body>
+    </html>

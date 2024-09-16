@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sistema-Cabra/cadastro</title>
+        <link type="text/css" rel="stylesheet" href="css/csscadastro.css">
+    </head>
+    <body>
+      <div class="janela">
+        <div class="mainDiv">
+
+            <!-- classe "logtit" "log é pra parte grande escritoin" ou coisas similares -->
+            <div class="logtit">
+              <b>Cadastro</b> </div>
+
+            <div class="imgcontainer">
+              <img src="imgs/Frog_Rectangular.jpg" alt="imgd" class="imgd">
+            </div>
+
+            <div class="entrar">
+                <button type="submit" class="btalt" formnovalidate>Alterar Imagem</button>
+              </div>
+
+            <!-- classe "container" são os botões com input texto-->
+            <div class="container">
+              <label for="mat"><b></b></label>
+              <input type="text" placeholder=" Matrícula:" name="mat" class="matBtn" required>
+             </div>
+             
+             <div class="container">
+                 <label for="nome"><b></b></label>
+                <input type="text" placeholder=" Nome:" name="nome" class="nomeBtn" required>
+               </div>
+
+               <div class="container">
+                   <label for="senh"></label>
+                   <input type="password" placeholder=" Senha: " name="senh" clas="snhBtn" required>
+                </div>
+                
+                <!-- classe "entrar" serve pro botão de entrar, provavelmente será usado para outros semelhantes-->
+                <div class="entrar">
+              <button type="submit" class="btreg">Registrar</button>
+            </div>
+            <div class="logtit">
+              <b>Sistema Cabra</b>
+            </div>
+          </div>
+        </div>
+    </body>
+    
+    <script>
+
+        fetch('/api/usuarios')
+        .then(resposta => resposta.json())
+        .then(usuarios => console.log(usuarios));
+
+        console.log(users)
+        
+        const matBtn = document.querySelector('.matBtn');
+        const nomeBtn = document.querySelector('.nomeBtn');
+        const snhBtn = document.querySelector('.snhBtn');
+        const regBtn = document.querySelector('.btreg');
+        
+        
+        function envia(e) {
+            console.log("matricula: ", matBtn.value) ;
+            console.log("nome: " , nomeBtn.value);
+            console.log("senha: ", snhBtn.value);
+            
+            
+
+       } 
+
+       regBtn.addEventListener('click', envia);
+
+    </script>
+    </html>

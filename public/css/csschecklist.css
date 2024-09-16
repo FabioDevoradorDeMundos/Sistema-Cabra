@@ -1,0 +1,153 @@
+html{
+    background-color: #6EAF79;
+}
+
+.janela{
+   display: flex;
+   justify-content:center;
+   align-items: center;
+   height: 100vh;
+   width: 100vw;
+}
+
+
+.mainDiv {
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 15px;
+    text-align: center;
+    padding: 0px;
+    width: 950px;
+    height: 620px;
+    line-height: 3;
+  }
+
+ .logtit{
+    font-size: xx-large;
+ }
+
+.legenda{
+  margin-left: 25%;
+  font-size: x-large;
+  margin-bottom: -2%;
+}
+
+ .txtar{
+    border: 3px solid black;
+    border-radius: 15px;
+    height: 250px;
+    width: 300px;
+    font-size: x-large;
+    margin-left: 30%;
+ }
+
+ .txtar:hover{
+   background-color: rgb(241, 241, 241);
+ }
+
+ button[type=submit]{
+    background-color: #56B278;
+    border: 3px;
+    border-radius: 36px;
+    width: 45%;
+    height: 45px;
+    font-size: x-large;
+    font-weight: bold;
+    margin-top: auto;
+ }
+
+ button[type=submit]:hover{
+  background-color:#489664;
+  cursor: pointer;
+}
+ 
+ .coisaembaixo{
+    font-size: 150%;
+    line-height: 2;
+    font-weight: bold;
+ }
+
+.chkbxsDiv{
+   display: flex;
+   flex-wrap: wrap;
+   margin-left: 10%;
+   font-size:x-large;
+   margin-bottom: -37%;
+   accent-color: black;
+
+}
+
+.break{
+   flex-basis: 100%;
+   height: 0;
+}
+
+input[type=checkbox]:hover{
+   cursor:pointer;
+   accent-color: gray;
+}
+
+/* Abaixo contém css da barra do lado */
+
+
+.sidebar {
+   height: 100%;
+   width: 0;
+   position: fixed;
+   z-index: 1;
+   top: 0;
+   left: 0;
+   background-color: #1a5a3241;
+   overflow-x: hidden;
+   transition: 0.5s;
+   padding-top: 60px;
+   border: solid, 2px, black;
+ }
+ 
+ .sidebar a {
+   padding: 8px 8px 8px 32px;
+   text-decoration: none;
+   font-size: 25px;
+   color: #ffffff;
+   display: block;
+   transition: 0.3s;
+   border-radius: 5px;
+ }
+ 
+ .sidebar a:hover {
+   color: #f1f1f1;
+ }
+ 
+ .sidebar .closebtn {
+   position: absolute;
+   top: 0;
+   right: 25px;
+   font-size: 36px;
+   margin-left: 50px;
+ }
+ 
+ .openbtn {
+   font-size: 20px;
+   cursor: pointer;
+   background-color: #6EAF79;
+   color: white;
+   border: none;
+   border-radius: 5px;
+ }
+ 
+ .openbtn:hover {
+   background-color: #444;
+ }
+ 
+ #main {
+   transition: margin-left .25s;
+   padding: 16px;
+ }
+ .backBtn{
+   padding-left: 10px;
+   font-size:48px;
+}
+.backBtn:hover{
+     font-weight: bold;
+   cursor: pointer;
+  }

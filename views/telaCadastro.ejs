@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sistema-Cabra/cadastro</title>
+        <link type="text/css" rel="stylesheet" href="css/csscadastro.css">
+    </head>
+    <body>
+      <div id="mySidebar" class="sidebar">
+        <a href="#" class="desenvolvedores">Desenvolvedores</a>
+        <a href="#" class="ajuda">Ajuda</a>
+        <a href="#" class="voltar">Voltar</a>
+        </div>
+        <div id="main">
+          <button class="openbtn">☰</button>  
+        </div>
+        <div class="janela">
+      <div class="janela">
+        <div class="mainDiv">
+
+            <!-- classe "logtit" é pra parte grande escrito "login" ou coisas similares -->
+            <div class="logtit">
+                <b>Cadastro</b> </div>
+
+            <div class="imgcontainer">
+              <img src="imgs/Logo plácido.png" alt="imgd" class="imgd">
+            </div>
+
+      
+            <!-- classe "container" são os botões com input texto-->
+            <div class="container">
+              <span hidden class="camposTxt"></span> <br> <button type="submit" hidden class="hidBtn">Voltar</button> <br>
+              <label for="mat"><b></b></label>
+              <input type="text" placeholder=" Matrícula:" name="mat" class="mat" required>
+             </div>
+             
+             <div class="container">
+                <label for="nome"><b></b></label>
+                <input type="text" placeholder=" Nome:" name="nome" class="nome" required>
+               </div>
+
+               <div class="container">
+                <label for="turma"><b></b></label>
+                <input type="text" placeholder=" Turma:" name="turma" class="turma" required>
+               </div>
+
+               <div class="container">
+                <label for="turno"><b></b></label>
+                <input type="text" placeholder=" Turno:" name="turno" class="turno" required>
+               </div>
+
+               <div class="container">
+                <label for="login"><b></b></label>
+                <input type="text" placeholder=" login:" name="login" class="login" required>
+               </div>
+
+             <div class="container">
+              <label for="senh"></label>
+              <input type="password" placeholder=" Senha: " name="senh" class="senha" required>
+            </div>
+            <div class="container">
+              <label for="senh"></label>
+              <input type="password" placeholder=" Confirmar Senha: " name="confsenh" class="confSenha" required>
+            </div>
+            <input type="checkbox" class="snhBtn">Mostrar Senha
+            <br>
+            <span hidden class="hidTxt">O código de verificação foi enviado ao seu email escolar.<br></span> 
+            <input type="text" hidden placeholder="Insira o código" class="hid">
+            <!-- classe "entrar" serve pro botão de entrar, provavelmente será usado para outros semelhantes-->
+            <div class="entrar">
+              <button type="submit" class="btreg">Registrar</button><br>
+              <button type="submit" hidden class="btcod">Enviar</button>
+            </div>
+            <div class="logtit">
+              <b>Sistema Cabra</b>
+            </div>
+          </form>
+        </div>
+    </body>
+    <script>
+
+      
+</script>
+<script src="js/cadastroJs.js"></script>
+    </html>
